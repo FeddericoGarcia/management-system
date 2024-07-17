@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, Sign-in</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<style>
+    body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: #000000;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 20.1em;
+    width: 25.3em;
+    background-color: #EEE9;
+    border-radius: 10px;
+    box-shadow: 1px 3px 6px #999;
+    transition: 1s all;
+    margin-top: 50px;
+}
+section:hover, #g_signout:hover{
+    background: linear-gradient(#CCC9, #333);
+    color: #FFFFFF;
+}
+section h1{
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #000000;
+}
+#g_signout{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+    'Helvetica Neue', sans-serif, Helvetica, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    border: 1px #CCC;
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px #CCC;
+}
+.g_id_signin{
+    box-shadow: 2px 2px 4px #CCC;
+}
+#g_signout:hover{
+    cursor: pointer;
+}
+</style>
+<body>
+    <section>
+    <h1>Welcome</h1>
+    <h3>Sign-in with GOOGLE IDENTITY</h3>
+        <div id="g_id_onload"
+            data-client_id="498616417191-sh4vjbdmqcek6voihon8d7autf60b7dv.apps.googleusercontent.com"
+            data-auto_prompt="false"
+            data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin"
+            data-type="standard"
+            data-size="large"
+            data-theme="outline"
+            data-text="sign_in_with"
+            data-shape="rectangular"
+            data-logo_alignment="left">
+        </div>
+
+        <div>
+            <button id="g_signout">
+                SIGN-OUT
+            </button>
+        </div>
+
+    </section>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(res) {
+
+            const body = { id_token: res.credential };
+
+            fetch('http://localhost:3000/auth/google', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify( body )
+            })
+                .then( resp => resp.json() )
+                .then( resp => { 
+                    console.log( resp );
+                    localStorage.setItem('email', resp.user.email);
+                })
+                .catch( console.warn )
+
+        }
+      </script>
+      <script>
+        const signOut = document.getElementById("g_signout");
+        signOut.onclick = () => {
+
+            google.accounts.id.disableAutoSelect();
+            google.accounts.id.revoke(localStorage.getItem('email'), done =>{
+                localStorage.clear();
+                location.reload();
+            } );
+
+        }
+      </script>
+</body>
+</html>
