@@ -1,7 +1,7 @@
 {
   "name": "restserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "Rest server para sistema de gestión de ventas y clientes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
