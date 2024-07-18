@@ -103,6 +103,20 @@ const pathDelete = async ( req, res ) => {
         });
     }
 }
+
+// const deletePreviousImg = ( _model, collection ) =>{
+//     try {
+//         if( _model.img ){
+//             const nameArr = _model.img.split('/');
+//             const imgName = nameArr[nameArr.length - 1];
+//             const  [ public_id ] = imgName.split('.');
+//             cloudinary.uploader.destroy( public_id );
+//         }
+//     } catch (error) {
+//         console.log( error );
+//     }
+// }
+
  
 
 module.exports = {
