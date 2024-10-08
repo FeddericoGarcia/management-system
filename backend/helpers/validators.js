@@ -74,5 +74,5 @@ module.exports = {
     verifyID,
     verifyCategory,
     verifyProduct,
-    allowedCollections
+    // allowedCollections
 }

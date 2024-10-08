@@ -35,12 +35,13 @@ class Server {
 
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
-        this.app.use(express.static( 'public' ));
+        // this.app.use(express.static( '../../frontend/app/src/pages/login.js' ));
+        this.app.use(express.static( '/public/index.html' ));
 
-        this.app.use(fileUpload({
-            useTempFiles : true,
-            tempFileDir : '/tmp/'
-        }));
+        // this.app.use(fileUpload({
+        //     useTempFiles : true,
+        //     tempFileDir : '/tmp/'
+        // }));
     }
     
     routes(){
@@ -50,7 +51,7 @@ class Server {
         // **** TODO *****  this.app.use(this.paths.home, require('../routes/path')); 
         this.app.use(this.paths.products, require('../routes/productsPath'));
         this.app.use(this.paths.user, require('../routes/userPath'));
-        this.app.use(this.paths.uploads, require('../routes/uploadsPath'));
+        // this.app.use(this.paths.uploads, require('../routes/uploadsPath'));
     }
 
     listen(){
