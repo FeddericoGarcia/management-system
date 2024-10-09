@@ -6,10 +6,10 @@ function App() {
 
   const getComponent = () => {
     switch(window.location.pathname) {
-      case '/login':
-        return <Login />;
-      default:
+      case '/dashboard':
         return <Dashboard />;
+      default:
+        return <Login />;
     }
   }
 

@@ -1,38 +1,56 @@
+* {
+  font-family: "Raleway", sans-serif!important;
+  font-optical-sizing: auto;
+}
+
 .App {
+  width: auto;
+  height: 100vh;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+#patter-bg {
+  background-image: url(https://res.cloudinary.com/dipoe9wir/image/upload/v1728436996/cartas-tarot-patter-background_orditt.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  height: 100%;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: .5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.custom-textfield .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: rgb(146, 146, 146); 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.custom-textfield .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgb(40, 40, 40); 
 }
 
-.App-link {
-  color: #61dafb;
+.custom-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #65127488; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.custom-textfield input {
+  padding: .6rem;
+}
+
+.btn-login-google .MuiButtonBase-root {
+  color: #212121!important;
+  font-weight: 600;
+  border-color: rgb(146, 146, 146); 
+}
+
+.btn-login-google:hover .MuiButtonBase-root {
+  background-color: rgb(146, 146, 146, .2); 
+  border-color: rgb(33, 33, 33); 
 }
