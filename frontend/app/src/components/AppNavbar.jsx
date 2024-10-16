@@ -86,10 +86,10 @@ export function CustomIcon() {
         alignItems: 'center',
         alignSelf: 'center',
         backgroundImage:
-          'linear-gradient(135deg, hsl(210, 98%, 60%) 0%, hsl(210, 100%, 35%) 100%)',
+          'linear-gradient(180deg, rgba(101,18,116,1) 0%, rgba(24,24,24,1) 99%)',
         color: 'hsla(210, 100%, 95%, 0.9)',
         border: '1px solid',
-        borderColor: 'hsl(210, 100%, 55%)',
+        borderColor: 'rgb(101,18,116)',
         boxShadow: 'inset 0 2px 5px rgba(255, 255, 255, 0.3)',
       }}
     >
