@@ -6,10 +6,7 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-// import SelectContent from './SelectContent';
-// import MenuContent from './MenuContent';
-// import CardAlert from './CardAlert';
-// import OptionsMenu from './OptionsMenu';
+import MenuContent from './MenuContent';
 
 const drawerWidth = 240;
 
@@ -38,15 +35,17 @@ export default function SideMenu() {
       <Box
         sx={{
           display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          // backgroundColor: 'primary.dark',
           mt: 'calc(var(--template-frame-height, 0px) + 4px)',
           p: 1.5,
         }}
       >
-        {/* <SelectContent /> */}
+        <img src="https://res.cloudinary.com/dipoe9wir/image/upload/v1728417655/cetan-logo_vuvtjo.webp" alt="cetan-logo-banner" width='auto' height='58px'></img>
       </Box>
       <Divider />
-      {/* <MenuContent /> */}
-      {/* <CardAlert /> */}
+      <MenuContent />
       <Stack
         direction="row"
         sx={{
@@ -59,19 +58,18 @@ export default function SideMenu() {
       >
         <Avatar
           sizes="small"
-          alt="Riley Carter"
+          alt={`avatar del usuario ...`}
           src="/static/images/avatar/7.jpg"
           sx={{ width: 36, height: 36 }}
         />
         <Box sx={{ mr: 'auto' }}>
           <Typography variant="body2" sx={{ fontWeight: 500, lineHeight: '16px' }}>
-            Riley Carter
+            Usuario
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            riley@email.com
+            correo-usuario@email.com
           </Typography>
         </Box>
-        {/* <OptionsMenu /> */}
       </Stack>
     </Drawer>
   );
